@@ -1,9 +1,5 @@
 """
-Google AI Studio チャットJSON -> Markdown 変換スクリプト
-
-Google AI Studio からエクスポートされた JSON ファイルから、
-「ユーザーの質問（日時付き）」と「AIの回答（思考ログ除外・注釈リンク処理済み）」を抽出し、
-Markdown ファイルとして保存します。
+Google AI Studio スレッド JSON -> Markdown 変換スクリプト
 """
 
 import argparse
