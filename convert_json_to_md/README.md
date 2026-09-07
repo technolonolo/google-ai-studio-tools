@@ -2,19 +2,16 @@
 
 Google AI Studio の会話スレッドのファイル（JSON 形式）を、Markdown 形式のテキストに変換してファイルに保存する Python スクリプトです。
 
----
 
 ## 動作環境
 
 - Python 3.7 以上
 
----
 
 ## ファイルを用意する
 
 Google Drive の「Google AI Studio」フォルダから、目的の会話スレッドをダウンロードし、`.json` 拡張子をつけて保存します。
 
----
 
 ## スクリプトの使い方
 
@@ -37,7 +34,6 @@ python convert_json_to_md.py path/to/chat.json -o path/to/output.md
 > [!NOTE]
 > ファイルパスの引数を指定せずに実行した場合、パスの指定方法を示すエラーメッセージを表示して終了します。
 
----
 
 ## ライセンス
 
