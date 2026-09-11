@@ -21,7 +21,8 @@ Google AI Studioの会話スレッドのファイル（JSON 形式）から、�
 
 ## 会話スレッドのダウンロード
 
-Google Driveの「Google AI Studio」フォルダから目的の会話スレッドをダウンロードし、`.json` 拡張子をつけて保存します。
+- 前提として、Google AI Studioの設定の **AutoSave** または **Save Prompt** などで、会話スレッドが履歴に残っている必要があります。
+- Google Driveの「Google AI Studio」フォルダから目的の会話スレッドをダウンロードし、`.json` 拡張子をつけて保存します。
 
 
 ## スクリプトの使い方
