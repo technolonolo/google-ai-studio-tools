@@ -151,13 +151,13 @@ def insert_footnotes(text: str, grounding: dict) -> str:
     return "".join(result_parts)
 
 
-def convert_json_to_markdown(json_data: dict) -> str:
+def convert_json_to_markdown(json_data: dict, file_name: str) -> str:
     """チャットJSONデータをMarkdown形式のテキストに変換する。"""
     chunks = json_data.get("chunkedPrompt", {}).get("chunks", [])
     if not chunks:
-        return "# Google AI Studio チャットログ\n\nチャットデータが見つかりませんでした。\n"
+        return f"# {file_name}\n\n有効な会話データが見つかりませんでした。\n"
 
-    md_lines = ["# Google AI Studio チャットログ\n"]
+    md_lines = [f"# {file_name}\n"]
 
     for chunk in chunks:
         role = chunk.get("role")
@@ -195,7 +195,7 @@ def convert_json_to_markdown(json_data: dict) -> str:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Google AI StudioのチャットJSONファイルをMarkdownに変換します。"
+        description="Google AI Studio 会話スレッドのJSONファイルをMarkdownに変換します。"
     )
     parser.add_argument(
         "input_json",
@@ -237,7 +237,7 @@ def main():
         print(f"エラー: JSONファイルの読み込みに失敗しました ({e})", file=sys.stderr)
         sys.exit(1)
 
-    markdown_text = convert_json_to_markdown(data)
+    markdown_text = convert_json_to_markdown(data, input_path.stem)
 
     try:
         output_path.parent.mkdir(parents=True, exist_ok=True)

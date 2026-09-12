@@ -1,15 +1,15 @@
 /**
- * Google AI Studio チャットログ スプレッドシートインポート GAS
+ * Google AI Studio スレッド インポート GAS
  *
  * Google Driveの「Google AI Studio」フォルダ内にある会話スレッドのJSON形式ファイルを読み込み、
- * 整形して新規スプレッドシートにインポートします。
+ * 整形してスプレッドシートにインポートします。
  */
 
 // --- カスタムメニューの設定 ---
 function onOpen() {
   const ui = SpreadsheetApp.getUi();
   ui.createMenu('AIチャットを読み込み')
-    .addItem('スレッドをインポート', 'importChatThreadPrompt')
+    .addItem('スレッド名を指定して読み込む', 'importChatThreadPrompt')
     .addToUi();
 }
 
@@ -19,8 +19,8 @@ function onOpen() {
 function importChatThreadPrompt() {
   const ui = SpreadsheetApp.getUi();
   const response = ui.prompt(
-    'Google AI Studio スレッドのインポート',
-    'Google AI Studio から読み込むスレッド名のタイトルを入力してください:',
+    'Google AI Studio のスレッド名を指定して読み込む',
+    'Google AI Studio から読み込むスレッド名を入力してください:',
     ui.ButtonSet.OK_CANCEL
   );
 
@@ -105,7 +105,7 @@ if (fileIterator.hasNext()) {
 return { error: 'FILE_NOT_FOUND' };
 }
 
-// Helper: 判断是否为思考块
+// 思考ブロックであるかどうかを判断
 function isThoughtChunk(chunk) {
   if (chunk.isThought === true) return true;
   const parts = chunk.parts || [];
